@@ -12,15 +12,22 @@ class worm_hole():
         def energySpend(self,energy):
             import math 
             #TODO: This formula
-            distanceSpend = (self.espace_origin - self.espace_destiny) *math.pi
-            timeSpend = (self.time_origin - self.time_destiny)/math.e
+            distanceSpend = (self.espace_origin - self.espace_destiny) / math.pi
+            from datetime import datetime
+            td= (self.time_origin - self.time_destiny)
+            timespend = (td.microseconds + (td.seconds + td.days * 24 * 3600) * 10**6) / 10**6
+            timeSpend = (timespend)/math.e
             totalSpent = distanceSpend + timeSpend
+            print "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            print distanceSpend
+            print timespend
+            print totalSpent
             if energy >  totalSpent:
                 return True
             else:
                 return False
             
-        if energySpend(self,energy) == False and safeHole:
+        if energySpend(self,energy) == False and safe_hole:
             raise Exception("Not enougth energy to make a stable worm hole.")
         else:
             #TODO:Discover how to create a wormhole using this energy.
@@ -34,7 +41,7 @@ class worm_hole():
         #TODO:How to transport someone(alive) to the other side?
         
         
-        if passenger.is_alive():
+        if passenger.is_alive:
             print "You just arrived at your destination....alive"
         else:
             #TODO:Hide evidences?   
